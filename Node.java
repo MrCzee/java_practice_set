@@ -1,32 +1,21 @@
-package demo;
+package youtube_series;
 
-public class Node<T> { 
+public class Node {
 
-       private Node next;
-       private T Val;
+	int idata;
+	double ddata;
+	Node left;
+	Node right;
 	
 	
-	
-	Node GetNext()
+	public void displayNode()
 	{
-		return next;
+		System.out.println('{');
+		System.out.println(idata);
+		System.out.println(", ");
+		System.out.println(ddata);
+		System.out.print("} ");
 	}
-	
-	void SetNext(Node next)
-	{
-		this.next = next;
-	}
-	
-	
-	T GetVal()
-	{
-		return Val;
-	}
-	
-	void SetVal(T Val)
-	{
-		this.Val = Val;
-	}
-	
-	
 }
+// end class
+
