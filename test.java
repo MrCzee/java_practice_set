@@ -1,51 +1,69 @@
 package demo;
+
 import java.util.Scanner;
-public class test { 
-
-	
-	public static void main(String arg[])
-	{
-		IULinkedList<Integer> one = new IULinkedList<Integer>(30);
-		Scanner sc = new Scanner(System.in);
-		
-        System.out.println("\n\t\t\t\t==============");
-        System.out.println("\t\t\t\tI'M LINKEDLIST");
-        System.out.println("\t\t\t\t==============");
-
-		one.addFirst(20);
-		one.addLast(40);
-		one.addFirst(10);
-		one.addLast(50);
-       
-		
-		System.out.println(one);
-		
-		 System.out.println("Enter value for searching here?");
-		 int key = sc.nextInt();
-		 int findKey = one.search(key);
-
-		
-	    System.out.println("\n=====================");
-
-
-		
-		System.out.println("\n\nSearching values is: "+key);
-		
-		 if (findKey == -1) 
-	            System.out.println("\nElement not found in the Linked List");
-	        else
-	            System.out.println("\nElement found at index "+ findKey);
-
-
-		 System.out.println("\n=====================");
-		 System.out.println("System terminated....");
-		 System.out.println("=====================");
-
-
-	    }
-
+abstract class Acccount {
+	 protected String id;
+		protected double balance;
+		Acccount(String i, double bal){
+			id=i;
+			balance=bal;
+		}
+		public String getID() {
+			return id;
+		}
+		public double getBalance()
+		{
+			return balance;
+			
+		}
+		public abstract boolean withdraw(double amount); 
+		public abstract void deposit(double amount);
 	}
+
+	class SavingsAccount extends Acccount{	
+		private static final String id = null;
+		public static double InitialDeposit=0.0;
+		SavingsAccount(){
+			super (id, InitialDeposit);
+			InitialDeposit= balance;
+		}
+		public void deposit(double amount) {
+			balance=balance+amount;
+		} 
+			public boolean withdraw(double amount) {
+			if(amount>=10) {
+				balance=balance-amount;
+				balance-=2.0;
+				return true;
+			}
+			else
+				return false;
+		}
+
+}
+
+public class test {
+public static void main(String[] args) {
 	
+	 
+	// TODO Auto-generated method stub
+			System.out.println("Dear Aqib Memon");  
+			SavingsAccount box = new SavingsAccount();
+			box.deposit(15);
+			double new_balance = box.getBalance();
+			System.out.println("Your balance is : "+new_balance);
+			boolean w= box.withdraw(12);
+			System.out.println(w);
+			double g=box.getBalance();
+			System.out.println("Your new balance after withdrawal is : "+ g);
+
 	
-	
-	
+}
+
+
+
+
+}
+
+
+
